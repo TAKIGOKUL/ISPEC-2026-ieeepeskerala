@@ -61,7 +61,7 @@ const Navbar = () => {
                                 <li><Link to="/presentation-guideline" onClick={() => setIsMenuOpen(false)}>Presentation Guideline</Link></li>
                                 <li><Link to="/student-support" onClick={() => setIsMenuOpen(false)}>Student Support Fund</Link></li>
                                 <li><a href="#" onClick={() => setIsMenuOpen(false)}>Important Dates</a></li>
-                                <li><a href="#" onClick={() => setIsMenuOpen(false)}>Paper Submission</a></li>
+                                <li><Link to="/submission" onClick={() => setIsMenuOpen(false)}>Paper Submission</Link></li>
                             </ul>
                         </li>
                         <li className="dropdown">
@@ -70,7 +70,7 @@ const Navbar = () => {
                                 <li><a href="#" onClick={() => setIsMenuOpen(false)}>Final Program</a></li>
                                 <li><a href="#" onClick={() => setIsMenuOpen(false)}>Keynote Speakers</a></li>
                                 <li><a href="#" onClick={() => setIsMenuOpen(false)}>Plenary Speakers</a></li>
-                                <li><a href="#" onClick={() => setIsMenuOpen(false)}>Special Session Forum</a></li>
+                                <li><Link to="/special-sessions" onClick={() => setIsMenuOpen(false)}>Special Session Forum</Link></li>
                                 <li><a href="#" onClick={() => setIsMenuOpen(false)}>Tutorial</a></li>
                                 <li><a href="#" onClick={() => setIsMenuOpen(false)}>Technical Visit</a></li>
                             </ul>

@@ -19,6 +19,8 @@ import SponsorshipPage from './pages/SponsorshipPage'
 import StudentSupportPage from './pages/StudentSupportPage'
 import TravelPage from './pages/TravelPage'
 import VenuePage from './pages/VenuePage'
+import SpecialSessionPage from './pages/SpecialSessionPage'
+import PaperSubmissionPage from './pages/PaperSubmissionPage'
 import './index.css'
 
 const Home = () => (
@@ -47,6 +49,8 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/committee" element={<CommitteePage />} />
           <Route path="/call-for-papers" element={<CallForPapersPage />} />
+          <Route path="/special-sessions" element={<SpecialSessionPage />} />
+          <Route path="/submission" element={<PaperSubmissionPage />} />
           <Route path="/registration" element={<RegistrationPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/presentation-guideline" element={<PresentationGuidelinePage />} />

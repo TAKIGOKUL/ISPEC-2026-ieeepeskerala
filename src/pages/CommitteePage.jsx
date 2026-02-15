@@ -1,7 +1,5 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import PageHeader from '../components/PageHeader';
+import PageLayout from '../components/PageLayout';
 import speakerImg from '../assets/speaker.png';
 
 const CommitteeMember = ({ name, affiliation, role, image }) => (
@@ -9,7 +7,7 @@ const CommitteeMember = ({ name, affiliation, role, image }) => (
         textAlign: 'center',
         marginBottom: '30px',
         padding: '20px',
-        borderLeft: '4px solid #00629b', // Using primary color hex or var if possible
+        borderLeft: '4px solid #00629b',
         borderBottom: '4px solid #00629b',
         borderRadius: '0 0 0 20px',
         backgroundColor: '#fff',
@@ -33,7 +31,8 @@ const CommitteeMember = ({ name, affiliation, role, image }) => (
         </div>
         <h4 style={{ fontSize: '1.2rem', marginBottom: '5px', color: '#333' }}>{name}</h4>
         <p style={{ fontSize: '0.9rem', color: '#666', margin: 0 }}>{affiliation}</p>
-        {role && <p style={{ fontSize: '0.85rem', color: 'var(--primary)', fontWeight: 'bold', marginTop: '5px' }}>{role}</p>}
+
+        {/* Only show role if it's specific (like Co-Chair vs just Chair if needed, but here structure implies role) */}
     </div>
 );
 
@@ -59,39 +58,56 @@ const CommitteeSection = ({ title, members }) => (
 );
 
 const CommitteePage = () => {
-    // Placeholder data based on structure request
     const sections = [
-        { title: 'General Chairs', members: [{ name: 'TBA', affiliation: 'University/Organization' }, { name: 'TBA', affiliation: 'University/Organization' }] },
-        { title: 'Program Chairs', members: [{ name: 'TBA', affiliation: 'University/Organization' }, { name: 'TBA', affiliation: 'University/Organization' }] },
-        { title: 'Special Session Chairs', members: [{ name: 'TBA', affiliation: 'University/Organization' }] },
-        { title: 'Demo and Exhibition Chairs', members: [{ name: 'TBA', affiliation: 'University/Organization' }] },
-        { title: 'Publication Chairs', members: [{ name: 'TBA', affiliation: 'University/Organization' }] },
-        { title: 'Competition Chairs', members: [{ name: 'TBA', affiliation: 'University/Organization' }] },
-        { title: 'Workshops / Tutorials Chairs', members: [{ name: 'TBA', affiliation: 'University/Organization' }] },
-        { title: 'Publicity Chairs', members: [{ name: 'TBA', affiliation: 'University/Organization' }] },
-        { title: 'Website Chairs', members: [{ name: 'TBA', affiliation: 'University/Organization' }] },
-        { title: 'Finance and Local Chairs', members: [{ name: 'TBA', affiliation: 'University/Organization' }] },
-        { title: 'Awards Chairs', members: [{ name: 'TBA', affiliation: 'University/Organization' }] },
-        { title: 'Sponsorship Chairs', members: [{ name: 'TBA', affiliation: 'University/Organization' }] },
-        { title: 'Doctoral Consortium Chairs', members: [{ name: 'TBA', affiliation: 'University/Organization' }] },
-        { title: 'Broadening Participation Chairs', members: [{ name: 'TBA', affiliation: 'University/Organization' }] },
+        {
+            title: 'Advisory Chair',
+            members: [
+                { name: 'Prof. Dipti Srinivasan', affiliation: 'National University of Singapore' }
+            ]
+        },
+        {
+            title: 'General Co-Chairs',
+            members: [
+                { name: 'Asst. Prof. Dhivya Sampath Kumar', affiliation: 'Singapore Institute of Technology' },
+                { name: 'Assoc. Prof. Jimmy Peng', affiliation: 'National University of Singapore' }
+            ]
+        },
+        {
+            title: 'Finance Chair',
+            members: [
+                { name: 'Assoc. Prof. Sivaneasan Balakrishnan', affiliation: 'Singapore Institute of Technology' }
+            ]
+        },
+        {
+            title: 'Technical Programme Chairs',
+            members: [
+                { name: 'Assoc. Prof. Anurag Sharma', affiliation: 'Singapore Institute of Technology' },
+                { name: 'Assoc. Prof. Xu Yan', affiliation: 'Nanyang Technological University, Singapore' },
+                { name: 'Assoc. Prof. Daisuke Mashima', affiliation: 'Singapore University of Technology and Design' }
+            ]
+        },
+        {
+            title: 'Special Sessions Chair',
+            members: [
+                { name: 'Assoc. Prof. Elsa Feng', affiliation: 'Singapore Institute of Technology' }
+            ]
+        },
+        {
+            title: 'Registrations Chair',
+            members: [
+                { name: 'Asst. Prof. Muhammad Ramadan', affiliation: 'Singapore Institute of Technology' }
+            ]
+        }
     ];
 
     return (
-        <div className="page-wrapper">
-            <Navbar />
-            <PageHeader title="Organizers" breadcrumb="Committee" />
-
-            <main className="page-content">
-                <div className="container">
-                    {sections.map((section, index) => (
-                        <CommitteeSection key={index} title={section.title} members={section.members} />
-                    ))}
-                </div>
-            </main>
-
-            <Footer />
-        </div>
+        <PageLayout title="Conference Committee">
+            <div className="container">
+                {sections.map((section, index) => (
+                    <CommitteeSection key={index} title={section.title} members={section.members} />
+                ))}
+            </div>
+        </PageLayout>
     );
 };
 
