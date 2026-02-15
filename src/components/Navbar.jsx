@@ -28,6 +28,12 @@ const Navbar = () => {
         }
     };
 
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
     return (
         <header>
             <div className="top-bar">
@@ -45,43 +51,43 @@ const Navbar = () => {
                     <div className="logo">
                         <Link to="/" className="ispec">iSPEC <span className="year">2026</span></Link>
                     </div>
-                    <ul className="nav-links">
-                        <li><Link to="/" onClick={(e) => scrollToSection(e, 'home')}>HOME</Link></li>
-                        <li><Link to="/about">ABOUT</Link></li>
+                    <ul className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
+                        <li><Link to="/" onClick={() => setIsMenuOpen(false)}>HOME</Link></li>
+                        <li><Link to="/about" onClick={() => setIsMenuOpen(false)}>ABOUT</Link></li>
                         <li className="dropdown">
-                            <Link to="/call-for-papers">FOR AUTHORS <i className="fas fa-chevron-down"></i></Link>
+                            <span className="dropdown-toggle" onClick={(e) => e.target.nextElementSibling.classList.toggle('show')}>FOR AUTHORS <i className="fas fa-chevron-down"></i></span>
                             <ul className="dropdown-menu">
-                                <li><Link to="/call-for-papers">Call for Papers</Link></li>
-                                <li><Link to="/presentation-guideline">Presentation Guideline</Link></li>
-                                <li><Link to="/student-support">Student Support Fund</Link></li>
-                                <li><a href="#">Important Dates</a></li>
-                                <li><a href="#">Paper Submission</a></li>
+                                <li><Link to="/call-for-papers" onClick={() => setIsMenuOpen(false)}>Call for Papers</Link></li>
+                                <li><Link to="/presentation-guideline" onClick={() => setIsMenuOpen(false)}>Presentation Guideline</Link></li>
+                                <li><Link to="/student-support" onClick={() => setIsMenuOpen(false)}>Student Support Fund</Link></li>
+                                <li><a href="#" onClick={() => setIsMenuOpen(false)}>Important Dates</a></li>
+                                <li><a href="#" onClick={() => setIsMenuOpen(false)}>Paper Submission</a></li>
                             </ul>
                         </li>
                         <li className="dropdown">
-                            <a href="#program">PROGRAM <i className="fas fa-chevron-down"></i></a>
+                            <span className="dropdown-toggle" onClick={(e) => e.target.nextElementSibling.classList.toggle('show')}>PROGRAM <i className="fas fa-chevron-down"></i></span>
                             <ul className="dropdown-menu">
-                                <li><a href="#">Final Program</a></li>
-                                <li><a href="#">Keynote Speakers</a></li>
-                                <li><a href="#">Plenary Speakers</a></li>
-                                <li><a href="#">Special Session Forum</a></li>
-                                <li><a href="#">Tutorial</a></li>
-                                <li><a href="#">Technical Visit</a></li>
+                                <li><a href="#" onClick={() => setIsMenuOpen(false)}>Final Program</a></li>
+                                <li><a href="#" onClick={() => setIsMenuOpen(false)}>Keynote Speakers</a></li>
+                                <li><a href="#" onClick={() => setIsMenuOpen(false)}>Plenary Speakers</a></li>
+                                <li><a href="#" onClick={() => setIsMenuOpen(false)}>Special Session Forum</a></li>
+                                <li><a href="#" onClick={() => setIsMenuOpen(false)}>Tutorial</a></li>
+                                <li><a href="#" onClick={() => setIsMenuOpen(false)}>Technical Visit</a></li>
                             </ul>
                         </li>
-                        <li><Link to="/registration">REGISTRATION</Link></li>
-                        <li><Link to="/sponsorship">SPONSORSHIP</Link></li>
-                        <li><Link to="/committee">COMMITTEE</Link></li>
+                        <li><Link to="/registration" onClick={() => setIsMenuOpen(false)}>REGISTRATION</Link></li>
+                        <li><Link to="/sponsorship" onClick={() => setIsMenuOpen(false)}>SPONSORSHIP</Link></li>
+                        <li><Link to="/committee" onClick={() => setIsMenuOpen(false)}>COMMITTEE</Link></li>
                         <li className="dropdown">
-                            <Link to="/venue">VENUE <i className="fas fa-chevron-down"></i></Link>
+                            <span className="dropdown-toggle" onClick={(e) => e.target.nextElementSibling.classList.toggle('show')}>VENUE <i className="fas fa-chevron-down"></i></span>
                             <ul className="dropdown-menu">
-                                <li><Link to="/venue">Hyatt Regency Trivandrum</Link></li>
-                                <li><Link to="/travel">Travel to Trivandrum</Link></li>
+                                <li><Link to="/venue" onClick={() => setIsMenuOpen(false)}>Hyatt Regency Trivandrum</Link></li>
+                                <li><Link to="/travel" onClick={() => setIsMenuOpen(false)}>Travel to Trivandrum</Link></li>
                             </ul>
                         </li>
-                        <li><Link to="/contact">CONTACT</Link></li>
+                        <li><Link to="/contact" onClick={() => setIsMenuOpen(false)}>CONTACT</Link></li>
                     </ul>
-                    <div className="mobile-menu-btn">
+                    <div className={`mobile-menu-btn ${isMenuOpen ? 'active' : ''}`} onClick={toggleMenu}>
                         <span></span>
                         <span></span>
                         <span></span>
